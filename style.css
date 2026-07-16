@@ -1,0 +1,946 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+
+/* =========================================================================
+   DALIFAL 40 ANOS - ESTÉTICA ARTÍSTICA & MINIMALISTA (MAISON CACTUS STYLE)
+   ========================================================================= */
+
+:root {
+    --bg-main: #FFFFFF;
+    --bg-placeholder: #F7F7F7;
+    --text-heading: #000000;
+    --text-body: #333333;
+    --accent-color: #ef7c28;
+    --border-color: #E2E2E2;
+}
+
+/* --- 2. RESET GERAL --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    background-color: var(--bg-main);
+    color: var(--text-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Previne qualquer quebra horizontal inesperada */
+}
+
+/* --- 3. TIPOGRAFIA COMPACTA & PREMIUM --- */
+h1, h2, h3, h4, h5, h6,
+.hero-title, .page-hero-title, .section-title, .catalog-title, .b2b-title, .logo-placeholder {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    color: var(--text-heading);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+}
+
+/* --- 4. ESTRUTURA BASE E GRELHAS CONTROLADAS --- */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto !important;
+    padding: 6rem 1.5rem;
+}
+
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 4rem;
+    align-items: center;
+}
+
+.align-top {
+    align-items: start;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    width: 100%;
+}
+
+.grid-4-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .grid-2-cols {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .grid-4-cols {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-4-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- 5. TRATAMENTO ARTÍSTICO DE BOTÕES --- */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.2rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0;
+    box-shadow: none;
+    transition: all 0.35s ease;
+    white-space: nowrap;
+}
+
+.btn-primary, .btn-giant-primary {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+    border: 1px solid var(--accent-color);
+}
+
+.btn-primary:hover, .btn-giant-primary:hover {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.btn-giant-primary {
+    padding: 1.4rem 3.5rem;
+    font-size: 0.9rem;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-heading);
+    border: 1px solid var(--text-heading);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #FFFFFF;
+}
+
+.cta-secondary-light {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+.cta-secondary-light:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+    border-color: #FFFFFF;
+}
+
+.contact-link-highlight {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-link-highlight:hover {
+    color: var(--text-heading);
+}
+
+/* --- 6. NAV BAR & GLOBAL HEADER --- */
+.site-header {
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    text-decoration: none;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo-placeholder {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.anniversary-badge {
+    background-color: transparent;
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--accent-color);
+    padding: 0.15rem 0.4rem;
+    margin-left: 0.5rem;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666666;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-heading);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--text-heading);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-body);
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: inherit;
+    color: #999;
+    padding: 0.2rem;
+    transition: color 0.3s;
+}
+
+.lang-btn.active, .lang-btn:hover {
+    color: var(--text-heading);
+}
+
+.nav-external-btn {
+    border: 1px solid var(--border-color);
+    color: var(--text-heading) !important;
+    padding: 0.5rem 1.2rem;
+    background-color: transparent;
+    transition: all 0.35s ease;
+}
+
+.nav-external-btn:hover {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: #FFFFFF !important;
+}
+
+@media (max-width: 992px) {
+    .nav-list { display: none; }
+}
+
+/* --- 7. ESTERILIZAÇÃO VISUAL DAS HERO SECTIONS --- */
+.hero-splash, .page-hero, .brand-hero, .contact-hero {
+    background-color: var(--bg-placeholder);
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-splash {
+    height: 70vh;
+}
+
+.page-hero, .brand-hero, .contact-hero {
+    min-height: 450px;
+    height: 60vh;
+}
+
+.contact-hero {
+    height: 50vh;
+    min-height: 400px;
+}
+
+.hero-legacy-background {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(255, 255, 255, 0.65);
+    z-index: 2;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100%;
+}
+
+.hero-content, .hero-narrow {
+    position: relative;
+    z-index: 3;
+    max-width: 900px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 2.5rem 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.hero-title, .page-hero-title {
+    font-size: 3.8rem;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.hero-subtitle, .page-hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 750px !important;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+    .hero-title, .page-hero-title { font-size: 2.5rem; }
+}
+
+/* --- 8. CORREÇÃO DA GRELHA DE ÍCONES E CERTIFICAÇÕES --- */
+.section-company, .section-manifesto, .section-brand, .section-concept, .section-adn {
+    background-color: var(--bg-main);
+    width: 100%;
+}
+
+.section-header-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.section-quality-pastel {
+    background-color: #F8F9F6;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 6rem 0;
+    width: 100%;
+}
+
+/* Correção Absoluta para os Ícones Horizontais */
+.quality-icons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: start !important;
+    gap: 5rem !important;
+    margin-top: 4rem;
+    width: 100%;
+}
+
+.quality-badge {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    flex: 1;
+    max-width: 200px;
+}
+
+.quality-badge svg {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .quality-icons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 3rem !important;
+    }
+}
+
+.value-card {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- 9. CORREÇÃO DOS BANNERS E SPLIT CTAS --- */
+.section-b2b-banner {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+    width: 100%;
+}
+
+/* Alinhamento forçado e centralizado para evitar escoamento à esquerda */
+.b2b-banner-content {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 8rem 1.5rem;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.b2b-banner-content .b2b-title {
+    color: #FFFFFF;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+/* Split CTA Totalmente Controlado */
+.section-split-cta {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.split-cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.split-cta-box {
+    padding: 8rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.split-cta-b2c {
+    background-color: var(--bg-main);
+    border-right: 1px solid var(--border-color);
+}
+
+.split-cta-b2b {
+    background-color: var(--bg-placeholder);
+}
+
+@media (max-width: 900px) {
+    .split-cta-grid { grid-template-columns: 1fr; }
+    .split-cta-b2c { border-right: none; border-bottom: 1px solid var(--border-color); }
+    .split-cta-box { padding: 5rem 2rem; }
+}
+
+/* --- 10. TRATAMENTO DE MEDIA --- */
+.media-placeholder {
+    width: 100%;
+    background-color: var(--bg-placeholder);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-body);
+    object-fit: cover;
+}
+
+/* --- 11. FORMULÁRIOS --- */
+.b2b-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.grid-2-cols-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.form-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-heading);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    background-color: transparent;
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    color: var(--text-body);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none;
+    border-bottom-color: var(--accent-color);
+}
+
+/* --- 12. FOOTER EDITORIAL COMUM --- */
+.site-footer {
+    background-color: var(--border-color);
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.site-footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    width: 100%;
+}
+
+.site-footer .footer-col {
+    background-color: var(--bg-main);
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.site-footer .footer-heading {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-heading);
+    margin-bottom: 0.5rem;
+}
+
+.site-footer .footer-col p {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+.site-footer .footer-col a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-footer .footer-col a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom-bar {
+    background-color: var(--bg-main);
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.85rem;
+    color: #777777;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .site-footer .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+    .site-footer .footer-grid { grid-template-columns: 1fr; }
+}
+
+.editorial-values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 2rem;
+}
+
+.value-inline-item {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-body);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+
+@media (max-width: 480px) {
+    .editorial-values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Grelha Dinâmica Editorial de 5 Colunas (Famílias de Produto) */
+.catalog-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2.5rem;
+    align-items: start;
+    width: 100%;
+}
+
+.catalog-card-minimal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.catalog-card-minimal:hover {
+    transform: translateY(-5px);
+    opacity: 0.9;
+}
+
+.catalog-image-minimal {
+    width: 100%;
+    aspect-ratio: 1 / 1.4;
+    object-fit: cover; /* Garante que a imagem preenche o espaço sem distorcer */
+    border: 1px solid var(--border-color); /* Mantém a moldura editorial fina */
+    margin-bottom: 1.5rem;
+    display: block;
+    background-color: var(--bg-placeholder); /* Cor de fundo enquanto a imagem não carrega */
+}
+
+.catalog-content-minimal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.catalog-title-minimal {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-heading);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+/* Links Textuais com Linha Minimalista */
+.btn-text-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--text-body);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-body);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-text-link:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* Contentor Macro para o Bloco Unificado de Qualidade + Engenharia */
+.unified-quality-container {
+    width: 100%;
+    background-color: #F8F9F6; /* Mantém o fundo pastel natural contínuo */
+}
+
+.section-food-engineering {
+    width: 100%;
+}
+
+.engineering-content {
+    text-align: left;
+    padding-right: 1rem;
+}
+
+.section-tagline {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+}
+
+/* Breakpoints Responsivos para a Grelha de 5 Colunas */
+@media (max-width: 992px) {
+    .catalog-grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-grid-5 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- ADENDA: MAPA EDITORIAL PROFISSIONAL --- */
+.map-art-container {
+    width: 100%;
+    height: 500px;
+    background-color: var(--bg-placeholder);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-svg {
+    width: 100%;
+    height: 100%;
+    max-height: 460px;
+}
+
+.map-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    fill: var(--text-heading);
+}
+
+.map-text-main {
+    font-size: 0.85rem;
+    letter-spacing: 2.5px;
+    fill: #000000;
+}
+
+.map-text-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    fill: var(--accent-color);
+}
+
+.map-ocean-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    fill: #CCCCCC;
+}
+
+.map-marker {
+    transition: transform 0.3s ease;
+}
+
+.map-marker:hover {
+    transform: translate(-2px, -2px);
+}
+
+.hero-background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo preenche o espaço sem distorcer */
+    z-index: 1; /* Mantém o vídeo atrás da película e do texto */
+}
+
+/* =========================================================================
+   CARROSSEL DE ARTE (SECÇÃO EMPRESA - PÁGINA INICIAL)
+   ========================================================================= */
+
+.company-media-side {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-placeholder);
+    border: 1px solid var(--border-color);
+}
+
+.art-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.art-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+
+    /* A animação agora dura 20 segundos para 4 imagens */
+    animation: premiumCrossfade4 20s infinite;
+}
+
+/* Nova matemática de Fade para 4 imagens (cada ciclo de imagem representa 25%) */
+@keyframes premiumCrossfade4 {
+    0% { opacity: 0; }
+    5% { opacity: 1; }   /* Fade-in rápido e suave (1 segundo) */
+    25% { opacity: 1; }  /* Mantém a imagem visível em grande plano */
+    30% { opacity: 0; }  /* Fade-out suave revelando a próxima imagem */
+    100% { opacity: 0; } /* Mantém-se oculta enquanto as outras 3 passam */
+}
+
+/* =========================================================================
+   SECÇÃO DE CERTIFICADOS E GARANTIAS (EMPRESA.HTML)
+   ========================================================================= */
+
+.section-certificates {
+    width: 100%;
+}
+
+.certificates-grid-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem 4rem; /* Espaçamento editorial largo entre os blocos */
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.certificate-item-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 calc(45% - 2rem); /* Organiza em blocos emparelhados de alta leitura */
+    max-width: 420px;
+    padding: 1rem;
+    background-color: transparent;
+}
+
+.certificate-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(0%); /* Mantém a identidade cromática institucional dos fundos europeus */
+    transition: opacity 0.3s ease;
+}
+
+.certificate-img:hover {
+    opacity: 0.85;
+}
+
+/* Responsividade Avançada */
+@media (max-width: 768px) {
+    .certificates-grid-flex {
+        gap: 2.5rem 1.5rem;
+    }
+
+    .certificate-item-box {
+        flex: 0 1 100%; /* Passa para coluna única vertical em ecrãs pequenos */
+        max-width: 360px;
+    }
+}
+
+/* =========================================================================
+   ESTILOS DO LOGÓTIPO (HEADER E FOOTER)
+   ========================================================================= */
+
+/* Logótipo no Cabeçalho */
+.site-logo {
+    height: 125px; /* Altura ideal para não alargar demasiado a barra de navegação */
+    width: auto; /* Mantém a proporção original da imagem */
+    object-fit: contain;
+    display: block;
+}
+
+/* Alinhamento vertical perfeito com o selo dos 40 anos */
+.logo-link {
+    text-decoration: none;
+    border: none;
+    display: flex;
+    align-items: center; /* Centra a imagem e o selo na mesma linha */
+    gap: 0.5rem; /* Espaço entre o logo e o selo */
+}
+
+/* Logótipo no Rodapé (Pode ser um pouco maior para ganhar destaque) */
+.site-logo-footer {
+    height: 80px; /* Mantém a escala editorial definida na style guide */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 1rem;
+    align-self: flex-start; /* Garante que fica encostado à esquerda */
+}
+
+/* --- TRATAMENTO GERAL DE IMAGENS DE CONTEÚDO --- */
+.content-image {
+    width: 100%;
+    object-fit: cover; /* Garante que a imagem preenche a caixa sem distorcer */
+    border: 1px solid var(--border-color); /* Mantém o traço fino de galeria */
+    display: block;
+}
+
+/* =========================================================================
+   SISTEMA DE TRADUÇÃO NATIVA (PT / EN)
+   ========================================================================= */
+body.lang-pt .lang-en { display: none !important; }
+body.lang-en .lang-pt { display: none !important; }
