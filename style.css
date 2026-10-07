@@ -15,7 +15,7 @@
     /* Laranja acessível: textos e fundos de botões com texto branco (≈ 5:1) */
     --accent-color: #C2410C;
     --border-color: #E2E2E2;
-    --header-height: 96px;
+    --header-height: 120px;
     --focus-ring: 0 0 0 3px #FFFFFF, 0 0 0 5px #000000;
 }
 
@@ -184,6 +184,16 @@ h1, h2, h3, h4, h5, h6,
     margin: 0 auto 3rem auto;
 }
 
+.section-header-center p {
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-item p {
+    max-width: 65ch;
+}
+
 @media (max-width: 768px) {
     .container { padding: 4rem 1.25rem; }
     .container-flush { padding-top: 0; padding-bottom: 0; }
@@ -263,6 +273,19 @@ h1, h2, h3, h4, h5, h6,
     margin-top: 2.5rem;
 }
 
+/* Botões empilhados com a mesma largura (a do botão mais largo) */
+.btn-row {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .btn-row { display: flex; }
+    .btn-row .btn { width: 100%; }
+}
+
 .contact-link-highlight {
     display: inline-flex;
     align-items: center;
@@ -315,15 +338,15 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .site-logo {
-    height: 80px;
+    height: 104px;
     width: auto;
     display: block;
     transition: height 0.3s ease;
 }
 
 /* Cabeçalho compacto depois de fazer scroll */
-.site-header.is-scrolled .header-container { min-height: 68px; }
-.site-header.is-scrolled .site-logo { height: 56px; }
+.site-header.is-scrolled .header-container { min-height: 84px; }
+.site-header.is-scrolled .site-logo { height: 72px; }
 
 .nav-list {
     display: flex;
@@ -459,7 +482,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 992px) {
-    :root { --header-height: 64px; }
+    :root { --header-height: 76px; }
 
     .header-container {
         padding: 0.25rem 1.25rem;
@@ -467,7 +490,7 @@ h1, h2, h3, h4, h5, h6,
     }
 
     .site-logo,
-    .site-header.is-scrolled .site-logo { height: 48px; }
+    .site-header.is-scrolled .site-logo { height: 64px; }
     .site-header.is-scrolled .header-container { min-height: var(--header-height); }
 
     .menu-toggle { display: inline-flex; }
@@ -617,8 +640,17 @@ h1, h2, h3, h4, h5, h6,
     .hero-content { padding: 3.5rem 1.25rem 4.5rem; align-items: stretch; }
     .hero-title, .page-hero-title { font-size: 2rem; letter-spacing: -0.5px; text-align: left; }
     .hero-subtitle, .page-hero-subtitle { font-size: 1.05rem; text-align: left; }
+    .hero-actions { justify-content: flex-start; }
+}
+
+@media (max-width: 600px) {
     .hero-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; }
     .hero-actions .btn { width: 100%; }
+}
+
+@media (max-width: 380px) {
+    .hero-title, .page-hero-title { font-size: 1.75rem; }
+    .hero-content { padding: 2.75rem 1rem 4.5rem; }
 }
 
 /* --- 7. CARTÕES E LISTAS --- */
@@ -709,7 +741,7 @@ h1, h2, h3, h4, h5, h6,
 .stats-strip {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     text-align: center;
 }
@@ -1127,8 +1159,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .form-checkbox {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     flex-shrink: 0;
     margin-top: 0.2rem;
     accent-color: var(--accent-color);
@@ -1162,14 +1194,18 @@ h1, h2, h3, h4, h5, h6,
 
 /* --- 13. CATÁLOGOS (NEUTURA) --- */
 .catalog-grid-5 {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2.5rem;
-    align-items: start;
+    --cols: 5;
+    --gap: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap);
+    align-items: flex-start;
     list-style: none;
 }
 
 .catalog-card-minimal {
+    flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1213,11 +1249,11 @@ h1, h2, h3, h4, h5, h6,
 .btn-text-link:hover { color: var(--accent-color); }
 
 @media (max-width: 992px) {
-    .catalog-grid-5 { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .catalog-grid-5 { --cols: 3; --gap: 2rem; }
 }
 
 @media (max-width: 600px) {
-    .catalog-grid-5 { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .catalog-grid-5 { --cols: 2; --gap: 1.25rem; }
 }
 
 /* --- 14. PROJETOS COFINANCIADOS --- */
@@ -1292,7 +1328,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* --- 16. PÁGINAS LEGAIS --- */
 .legal-content {
-    max-width: 800px;
+    max-width: 720px;
     margin: 0 auto;
 }
 
@@ -1328,7 +1364,7 @@ h1, h2, h3, h4, h5, h6,
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 1.3fr 1fr;
     gap: 1px;
 }
 
@@ -1431,10 +1467,6 @@ h1, h2, h3, h4, h5, h6,
 
 .footer-legal-links a:hover { color: var(--accent-color); }
 
-.footer-company-id {
-    font-size: 0.8rem;
-    line-height: 1.6;
-}
 
 @media (max-width: 900px) {
     .footer-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1445,6 +1477,9 @@ h1, h2, h3, h4, h5, h6,
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .footer-col { padding: 2rem 1.25rem; gap: 0.5rem; }
     .footer-col-brand, .footer-col-contacts { grid-column: 1 / -1; }
+    .footer-col:nth-child(2) { order: 2; }
+    .footer-col:nth-child(4) { order: 3; }
+    .footer-col-contacts { order: 4; }
 }
 
 /* --- 18. MOVIMENTO REDUZIDO --- */
